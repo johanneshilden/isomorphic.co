@@ -21,6 +21,19 @@ var path = new THREE.Curves.TorusKnot();
 var tube = new THREE.TubeGeometry(path, 300, 3, vertices, true);
 var geometry = new THREE.TubeGeometry(path, 300, 2.98, vertices, true);
 
+function setSwitch(event) {
+    var mode = event.target.id;
+    var other = (mode === 'switch-on') ? 'off' : 'on';
+    document.getElementById(mode).style.display = 'none';
+    document.getElementById('switch-' + other).style.display = 'block';
+    if ('on' === other) {
+        wallMaterial.transparent = true;
+        wallMaterial.opacity = 0.9;
+    } else {
+        wallMaterial.transparent = false;
+    }
+}
+
 if (webglAvailable()) {
 
     renderer = new THREE.WebGLRenderer({antialias: true});
@@ -88,19 +101,6 @@ if (webglAvailable()) {
     scene.add(stars); 
 
     // -----------------------------------------------------------------------------
-    
-    function setSwitch(event) {
-        var mode = event.target.id;
-        var other = (mode === 'switch-on') ? 'off' : 'on';
-        document.getElementById(mode).style.display = 'none';
-        document.getElementById('switch-' + other).style.display = 'block';
-        if ('on' === other) {
-            wallMaterial.transparent = true;
-            wallMaterial.opacity = 0.9;
-        } else {
-            wallMaterial.transparent = false;
-        }
-    }
     
     document.getElementById('switch-on').addEventListener('click', setSwitch);
     document.getElementById('switch-off').addEventListener('click', setSwitch);
