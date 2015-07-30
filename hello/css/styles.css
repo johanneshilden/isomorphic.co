@@ -94,7 +94,7 @@ h2 .fa {
     top: 0; 
     left: 0; 
     width: 43%; 
-    min-width: 350px;
+    min-width: 380px;
     height: 100%;
 }
 
@@ -124,7 +124,7 @@ h2 .fa {
 
 .page-wrapper {
     width: 43%; 
-    min-width: 350px;
+    min-width: 380px;
     position: absolute; 
     color: #fff; 
     top: 0; 
